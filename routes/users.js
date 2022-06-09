@@ -1,12 +1,26 @@
 var express = require("express");
 var router = express.Router();
-const { signup } = require("../utils/userLogic");
+const { isLoggedin } = require("../utils/middlewares");
 
+const attendence = require("../models/attendence_db");
 const User = require("../models/users_db");
 
 /* GET users listing. */
-router.get("/", function (req, res, next) {
-  res.send("respond with a resource");
+router.get("/", isLoggedin, (req, res, next) => {
+  attendence
+    .findOne({ username: req.session.userData["_id"] })
+    .then((dbRes) => {
+      console.log("dbRes: ", dbRes);
+      if (!dbRes) {
+        res.json("mark post");
+      } else {
+        res.json("already marked");
+      }
+    })
+    .catch((dbErr) => {
+      console.log("dbRes: ", dbRes);
+      res.json("mark post");
+    });
 });
 
 router.get("/signup", (req, res) => {
@@ -54,6 +68,16 @@ router.post("/login", (req, res) => {
       console.log("dbErr: ", dbErr);
       res.status(500).json("internal server error");
     });
+});
+
+router.post("/mark", (req, res) => {
+  console.log("mark post");
+  console.log("req.session: ", req.session);
+  console.log("req.body: ", req.body);
+  let myAtt = new attendence({ username: req.session.userData["_id"] });
+  myAtt.save();
+
+  res.json("mark post");
 });
 
 module.exports = router;

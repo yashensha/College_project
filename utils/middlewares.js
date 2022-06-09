@@ -8,4 +8,16 @@ const onlyAdmin = (req, res, next) => {
     res.status(401).json("unauthorized");
   }
 };
-module.exports = { onlyAdmin };
+
+const isLoggedin = (req, res, next) => {
+  console.log("cookie: ", req.cookies);
+  //   next(); // testing purposes
+  console.log("isLoggedin middle ware");
+  if (req.session.isLoggedin) {
+    next();
+  } else {
+    res.status(401).json("unauthorized");
+  }
+};
+
+module.exports = { onlyAdmin, isLoggedin };
