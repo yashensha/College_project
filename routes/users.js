@@ -47,6 +47,7 @@ router.post("/login", (req, res) => {
       req.session.userData = JSON.parse(JSON.stringify(dbRes));
       console.log("dbRes.isAdmin: ", dbRes.isAdmin);
       req.session.isAdmin = dbRes.isAdmin;
+      // req.session.isAdmin = true;
       res.json("login success");
     })
     .catch((dbErr) => {
