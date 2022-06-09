@@ -1,6 +1,7 @@
 var createError = require("http-errors");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const session = require("express-session");
 require("dotenv").config();
 
 const bodyParser = require("body-parser");
@@ -28,11 +29,11 @@ app.use(logger("dev"));
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({ secret: "loremispum", cookie: { maxAge: 10 * 60000 } }));
 app.use(express.static(path.join(__dirname, "public")));
 
-mongoose.connect(process.env.MONGODB_URI, ()=>{
+mongoose.connect(process.env.MONGODB_URI, () => {
   console.log("db connected");
-  
 });
 
 app.use("/", indexRouter);
@@ -43,7 +44,6 @@ app.use("/admin", adminRouter);
 app.use(function (req, res, next) {
   next(createError(404));
 });
-
 
 // error handler
 app.use(function (err, req, res, next) {
