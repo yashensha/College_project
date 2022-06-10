@@ -9,10 +9,5 @@ git commit -m "$now";
 echo "pushing to git repo...."
 git push -u origin main;
 
+# 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
 
-
-
-
-echo "all execution completed"
-echo "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"
-read abc
