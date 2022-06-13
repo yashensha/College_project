@@ -58,6 +58,7 @@ router.post("/login", (req, res) => {
       // console.log("result: ", result);
       if (result) {
         req.session.isLoggedin = true;
+        req.session.isAdmin = user.isAdmin;
         req.session.userData = user;
         console.log("login succs");
         res.redirect("/");
