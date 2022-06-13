@@ -49,17 +49,22 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
+  // console.log("body: ", req.body);
   User.findOne({
     username: req.body.username,
   }).then((user) => {
+    // console.log("user: ", user);
     bcrypt.compare(req.body.password, user.password, function (err, result) {
-      if (result == true) {
+      // console.log("result: ", result);
+      if (result) {
         req.session.isLoggedin = true;
+        req.session.isAdmin = user.isAdmin;
         req.session.userData = user;
         console.log("login succs");
         res.redirect("/");
       } else {
         console.log("login err");
+        console.log("err: ", err);
       }
     });
   });
@@ -88,7 +93,8 @@ router.get("/logout", (req, res) => {
 
 //attendenece marking
 
-router.get("/addatendence/:id", async (req, res) => {
+router.get("/attendence/:id", async (req, res) => {
+  // console.log("id: ", req.params.id);
   var nowDate = new Date();
   var date =
     nowDate.getDate() +
@@ -96,6 +102,7 @@ router.get("/addatendence/:id", async (req, res) => {
     (nowDate.getMonth() + 1) +
     "/" +
     nowDate.getFullYear();
+  // console.log("date: ", date);
   try {
     const user = await User.findById(req.params.id);
     if (!user.attendence.includes(date)) {
@@ -112,6 +119,7 @@ router.get("/addatendence/:id", async (req, res) => {
 //select monthwise atendence of a user
 router.get("/monthAttendence/:id", async (req, res) => {
   const user = await User.findById(req.params.id);
+  // console.log("user: ", user);
   var nowDate = new Date();
   var date =
     nowDate.getDate() +
@@ -119,19 +127,25 @@ router.get("/monthAttendence/:id", async (req, res) => {
     (nowDate.getMonth() + 1) +
     "/" +
     nowDate.getFullYear();
-  var old = 1 + "/" + nowDate.getMonth() + "/" + nowDate.getFullYear();
-  attendence = user.attendence;
+  // console.log("date: ", date);
+  let old = 1 + "/" + nowDate.getMonth() + "/" + nowDate.getFullYear();
+  let attendence = user.attendence;
   var Cmonth = [];
 
   var om = old.split("/")[1];
-  var oy = old.split("/")[3];
+  var oy = old.split("/")[2];
+  // console.log("oy: ", oy);
   attendence.map((a) => {
     var cm = a.split("/")[1];
-    var cy = a.split("/")[3];
+    var cy = a.split("/")[2];
     if (cm == om && cy == oy) {
       console.log(a);
+      Cmonth.push(a);
     }
   });
+
+  console.log("attendence: ", Cmonth);
+  res.json(Cmonth);
 });
 
 module.exports = router;
