@@ -30,6 +30,10 @@ const User = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  attendence: {
+    type: Array,
+    default: [],
+  },
 });
 
 module.exports = mongoose.model("User", User);

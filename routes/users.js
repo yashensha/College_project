@@ -79,8 +79,59 @@ router.post("/login", (req, res) => {
   //   res.status(500).json("internal server error");
   // });
 });
+
+//log out
 router.get("/logout", (req, res) => {
   req.session.destroy();
   res.redirect("/users/login");
 });
+
+//attendenece marking
+
+router.get("/addatendence/:id", async (req, res) => {
+  var nowDate = new Date();
+  var date =
+    nowDate.getDate() +
+    "/" +
+    (nowDate.getMonth() + 1) +
+    "/" +
+    nowDate.getFullYear();
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user.attendence.includes(date)) {
+      await user.updateOne({ $push: { attendence: date } });
+      res.status(200).json("attendence added");
+    } else {
+      res.status(403).redirect("/");
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//select monthwise atendence of a user
+router.get("/monthAttendence/:id", async (req, res) => {
+  const user = await User.findById(req.params.id);
+  var nowDate = new Date();
+  var date =
+    nowDate.getDate() +
+    "/" +
+    (nowDate.getMonth() + 1) +
+    "/" +
+    nowDate.getFullYear();
+  var old = 1 + "/" + nowDate.getMonth() + "/" + nowDate.getFullYear();
+  attendence = user.attendence;
+  var Cmonth = [];
+
+  var om = old.split("/")[1];
+  var oy = old.split("/")[3];
+  attendence.map((a) => {
+    var cm = a.split("/")[1];
+    var cy = a.split("/")[3];
+    if (cm == om && cy == oy) {
+      console.log(a);
+    }
+  });
+});
+
 module.exports = router;

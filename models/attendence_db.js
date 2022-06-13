@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 
-const attendence = new mongoose.Schema(
+const Attendence = new mongoose.Schema(
   {
-    username: {
+    userId: {
       type: String,
       required: true,
     },
     present: {
-      type: Boolean,
-      default: true,
+      type: Array,
+      default: [],
     },
   },
   {
@@ -19,4 +19,4 @@ const attendence = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("attendence", attendence);
+module.exports = mongoose.model("Attendence", Attendence);
