@@ -67,4 +67,30 @@ router.get("/attendence/:userId", onlyAdmin, async (req, res) => {
   res.json(Cmonth);
 });
 
+/*
+  GET: localhost:3000/admin/monthly/{monthId}
+  ---
+  monthId : 1-12
+*/
+router.get("/monthly/:month", onlyAdmin, async (req, res) => {
+  let Cmonth = [];
+  let findMonthNumber = req.params.month;
+  let currentYear = new Date().getFullYear();
+
+  console.log("param month: ", req.params.month);
+  const allUser = await User.find();
+  allUser.forEach((user) => {
+    user.attendence.map((singleAttDate) => {
+      let cm = singleAttDate.split("/")[1];
+      let cy = singleAttDate.split("/")[2];
+      if (cm == findMonthNumber && cy == currentYear) {
+        // console.log(singleAttDate);
+        Cmonth.push(singleAttDate);
+      }
+    });
+  });
+
+  res.json({ "mess month": Cmonth, length: Cmonth.length });
+});
+
 module.exports = router;
