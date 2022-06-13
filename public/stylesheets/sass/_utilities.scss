@@ -1,0 +1,198 @@
+.scrollable {
+  padding-top: $nav-h;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 89px;
+    flex-direction: column;
+}
+
+%banner {
+  color: $g1;
+  height: $inp-lg-h;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-admin {
+  @extend %banner;
+  @include set-background($red1);
+}
+
+.banner-success {
+  @extend %banner;
+  @include set-background($green1);
+}
+
+
+
+
+.adm-list {
+  background-color: $g1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: auto;
+
+  a {
+    color: $g11;
+    font-size: $lg-font;
+    padding: $btn-lg-size;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+  }
+  a:hover {
+    @include set-background($primary-color);
+  }
+}
+
+.nav-bar {
+  width: 100%;
+  height: $nav-h;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  @include set-background($primary-color);
+  justify-content: space-between;
+  backdrop-filter: blur(3px);
+  position: fixed;
+  z-index: 2;
+}
+
+
+
+
+%container {
+  width: 100%;
+  height: 50vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.container-primary {
+  @extend %container;
+  @include set-background($primary-color);
+}
+
+.container-secondary {
+  @extend %container;
+  @include set-background($secondary-color);
+}
+
+%box {
+  width: 100%;
+  font-family: $stock-font;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  h6{
+    font-size: $MD;
+    font-weight: 400;
+  }
+ 
+  p {
+    margin-top: 19px;
+    font-size: $SM;
+  }
+
+  h1 {
+    font-size: $LG;
+  }
+ 
+}
+
+.box-primary {
+  @extend %box;
+  @include set-background($primary-color);
+}
+
+.box-secondary {
+  @extend %box;
+  @include set-background($secondary-color);
+}
+
+.inp {
+    display: flex;
+    flex-direction: column;
+    color: $g1;
+    display: flex;
+    justify-content: center;
+  
+    label {
+        padding: 8px 0;
+      font-size: $lg-label;
+    }
+  }
+
+  .link-box{
+    margin-top: 24px;
+    font-size: $lg-label;
+  }
+  .link{
+      color: $g1;
+
+  }
+
+%alert {
+  font-family: $stock-font;
+  font-weight: 400;
+  padding: 8px 0;
+  width: $inp-lg-w;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.alert-success {
+  @extend %alert;
+  @include set-background($green1);
+}
+
+.alert-danger {
+  @extend %alert;
+  @include set-background($red1);
+}
+
+.foot{
+    @include set-background($primary-color);
+  width: 100%;
+  height: 20vh;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 20px;
+}
+
+
+// LINK-TRAY
+
+.link-tray{
+    display: none;
+}
+
+.b-icon{
+    display: none;
+}
+
+.icon{
+    color: $g1;
+    display: flex;
+    align-items: center;
+}

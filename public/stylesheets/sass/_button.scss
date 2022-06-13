@@ -1,0 +1,33 @@
+%btn{
+    text-decoration: none;
+  padding: $btn-lg-size;
+  font-family: $stock-font;
+  font-size: $lg-font;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: $btn-lg-margin;
+}
+
+.btn-primary{
+    @extend %btn;
+    border: $g1 solid 2px;
+    @include set-background($primary-color);
+    
+    &:hover{
+        border: $yellow1 solid 2px;
+        @include set-background($secondary-color);
+    }
+}
+
+.btn-secondary{
+    @extend %btn;
+    border: $yellow1 solid 2px;
+    @include set-background($secondary-color);
+    
+    &:hover{
+        border: $g1 solid 2px;
+        @include set-background($primary-color);
+    }
+}
+

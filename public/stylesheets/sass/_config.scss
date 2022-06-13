@@ -1,0 +1,146 @@
+//  colors  
+ $red1: #ff3b30;
+ $red2: #ff453a;
+
+ $orange1: #ff9500;
+ $orange2: #ff9f0a;
+
+ $yellow1: #ffcc00;
+ $yellow2: #ffd60a;
+
+ $green1: #34c759;
+ $green2: #30d158;
+
+ $mint1: #00c7be;
+ $mint2: #66d4cf;
+
+ $teal1: #30b0c7;
+ $teal2: #40c8e0;
+
+ $cyan1: #32ade6;
+ $cyan2: #64d2ff;
+
+ $blue1: #007aff;
+ $blue2: #0a84ff;
+
+ $indigo1: #5856d6;
+ $indigo2: #5e5ce6;
+
+ $purple1: #af52de;
+ $purple2: #bf5af2;
+
+ $pink1: #ff2d55;
+ $pink2: #ff375f;
+
+ $brown1: #a2845e;
+ $brown2: #ac8e68;
+//   shades of gray 
+ $g1: #1c1c1e;
+ $g2: #2c2c2e;
+ $g3: #3a3a3c;
+ $g4: #48484a;
+ $g5: #636366;
+ $g6: #8e8e93;
+ $g7: #aeaeb2;
+ $g8: #c7c7cc;
+ $g9: #d1d1d6;
+ $g10: #e5e5ea;
+ $g11: #f2f2f7;
+
+
+//  Sizes
+
+
+$nav-h:70px;
+
+$heading-spacing:13px;
+// BUTTON
+$btn-lg-size:9px 52px;
+$btn-lg-margin:50px;
+
+$btn-sm-size:6px 47px;
+$btn-sm-margin:50px;
+
+// INPUT
+$inp-lg-w:610px;
+$inp-lg-h:47px;
+
+$inp-sm-w:300px;
+$inp-sm-h:37px;
+
+
+
+//Primary and Secondary
+
+$primary-color:$yellow1;
+$secondary-color:$g1;
+$stock-font:"Fira Mono", monospace;
+$head-font:"Bebas Neue", cursive;
+
+
+$LG:10em;
+$MD:2em;
+$SM:2em;
+
+$sm-LG:($LG)-2;
+$sm-MD:($MD)-.5;
+$sm-SM:($SM)-1;
+
+$lg-LT:34pt;
+$lg-i:28pt;
+$lg-ii:22pt;
+$lg-iii:20pt;
+$lg-body:17pt;
+$lg-C-O:16pt;
+$lg-S-H:15pt;
+$lg-F-N:13pt;
+$lg-c-i:12pt;
+$lg-c-ii:11pt;
+
+
+$sm-LT:32pt;
+$sm-i:26pt;
+$sm-ii:20pt;
+$sm-iii:18pt;
+$sm-body:15pt;
+$sm-C-O:14pt;
+$sm-S-H:13pt;
+$sm-F-N:12pt;
+$sm-c-i:11pt;
+$sm-c-ii:10pt;
+
+
+$lg-font:$lg-body;
+$sm-font:$sm-body;
+
+$lg-label:$lg-F-N;
+$sm-label:$sm-F-N;
+
+// FUNCTION
+
+@function set-text-color($color){
+    @if($color == $secondary-color){
+        @return $primary-color;
+    }
+
+    @else if ($color == $primary-color) {
+        @return $secondary-color;
+    }
+
+    @else if ($color == $red1) {
+        @return $g11;
+    }
+
+    @else if ($color == $green1) {
+        @return $g1;
+    }
+
+    @else if ($color == $pink1) {
+        @return $g11;
+    }
+}
+
+@mixin set-background ($color){
+background-color: ($color);    
+color: set-text-color($color);
+}

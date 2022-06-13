@@ -14,6 +14,22 @@ const User = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  department: {
+    type: String,
+    required: true,
+  },
+  guardian: {
+    type: String,
+    required: true,
+  },
+  guardianNo: {
+    type: Number,
+    required: true,
+  },
+  admissionNo: {
+    type: Number,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("User", User);

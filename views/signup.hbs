@@ -10,8 +10,8 @@
     <nav class="nav-bar">
       <h1 class="heading">Hostelo de gentse</h1>
       <div class="nav-link">
-        <a href="/users/login" class="active">Log in</a>
-        <a href="/users/signup">Register</a>
+        <a href="/users/login">Log in</a>
+        <a href="/users/signup" class="active">Register</a>
       </div>
       <div class="b-icon">
         <i
@@ -33,7 +33,7 @@
       <a href="#">Register</a>
     </div>
 
-    <form action="/users/login" method="post" class="form">
+    <form action="/users/signup" method="post" class="form">
 
       <div class="inp">
         <label for="name">Name</label>
@@ -45,7 +45,58 @@
           required
         />
       </div>
+      <div class="inp">
+        <label for="mobile">Mobile Number</label>
+        <input
+          class="input-primary"
+          type="number"
+          name="phone"
+          placeholder="Enter mobile number"
+          required
+        />
+      </div>
 
+      <div class="inp">
+        <label for="dept">Department</label>
+        <select name="department" class="input-primary">
+          <option selected disabled>Select your Department</option>
+          <option value="CT">Computer Engineering</option>
+          <option value="ME">Mechanical Engineering</option>
+          <option value="EL">Electronics Engineering</option>
+          <option value="EEE">Electrical & Electronics Engineering</option>
+          <option value="CE">Civil Engineering</option>
+        </select>
+      </div>
+      <div class="inp">
+        <label for="guardian">Name of guardian</label>
+        <input
+          type="text"
+          class="input-primary"
+          name="guardian"
+          placeholder="Enter guardian's name"
+          required
+        />
+      </div>
+      <div class="inp">
+        <label for="guardian_mobile">Guardian's mobile number</label>
+        <input
+          type="number"
+          name="guardianNo"
+          class="input-primary"
+          placeholder="Enter guardian's mobile number"
+          required
+        />
+      </div>
+      <div class="inp">
+        <label for="adm_no">Admission number</label>
+        <input
+          type="number"
+          class="input-primary"
+          name="admissionNo"
+          placeholder="Enter your admission number"
+          required
+        />
+      </div>
       <div class="inp">
         <label for="password">Password</label>
         <input
@@ -58,7 +109,7 @@
       </div>
 
       <div class="inp">
-        <button class="btn-primary" type="submit">Login</button>
+        <button class="btn-primary" type="submit">Resister</button>
       </div>
     </form>
     <footer class="foot">
