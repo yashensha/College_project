@@ -7,13 +7,10 @@
     <title>Admin</title>
   </head>
   <body>
-    <a href="/users/logout" class="btn btn-primary">logout</a>
-
     <nav class="nav-bar">
       <h1 class="heading">Hostelo de gentse</h1>
       <div class="nav-link">
-        <a href="/users/login" class="active">Log in</a>
-        <a href="/users/signup">Register</a>
+        <a href="/users/logout">logout</a>
       </div>
       <div class="b-icon">
         <i
@@ -31,13 +28,13 @@
         onclick="linkTrayClose()"
         aria-hidden="true"
       ></i>
+      <a href="/users/logout" class="">logout</a>
     </div>
 
-    <div class="inp" style="margin-top: 30px">
-      <h4>name</h4>
-      <span>{{user.username}}</span>
-      <h2>Mess Bill</h2>
-      <p>previous month</p>
+    <div class="box-admin">
+      <h2>Name</h2>
+      <span class="username">{{user.username}}</span>
+      <p>Previous month's mess bill</p>
       <h1>250$</h1>
       <a href="/users/addatendence/{{user._id}}" class="btn btn-primary"
         >Add attendance</a
@@ -58,22 +55,23 @@
     ></script>
 
     <script>
-      function linkTray() { 
-          let tray = (document.querySelector(".link-tray"));
+      function linkTray() {
+        let tray = document.querySelector(".link-tray");
 
-      let iBar = (document.querySelector(".b-icon"));
-       let iClose = (document.querySelector(".c-icon")); 
-       tray.style.top = "69px";
-      iBar.style.display="none";
-       iClose.style.display="flex" 
-    } 
-    function
-      linkTrayClose() {
-           let tray = (document.querySelector(".link-tray")); 
-           let  iBar = (document.querySelector(".b-icon"));
-            let iClose = (document.querySelector(".c-icon")); tray.style.top = "-89px";
-    iBar.style.display="flex";
-    iClose.style.display="flex" }
+        let iBar = document.querySelector(".b-icon");
+        let iClose = document.querySelector(".c-icon");
+        tray.style.top = "69px";
+        iBar.style.display = "none";
+        iClose.style.display = "flex";
+      }
+      function linkTrayClose() {
+        let tray = document.querySelector(".link-tray");
+        let iBar = document.querySelector(".b-icon");
+        let iClose = document.querySelector(".c-icon");
+        tray.style.top = "-89px";
+        iBar.style.display = "flex";
+        iClose.style.display = "flex";
+      }
     </script>
   </body>
 </html>

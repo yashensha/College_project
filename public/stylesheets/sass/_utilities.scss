@@ -6,14 +6,14 @@
   align-items: center;
 }
 
-.form{
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    display: flex;
-    justify-content: flex-start;
-    padding-top: 89px;
-    flex-direction: column;
+.form {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 89px;
+  flex-direction: column;
 }
 
 %banner {
@@ -34,9 +34,6 @@
   @extend %banner;
   @include set-background($green1);
 }
-
-
-
 
 .adm-list {
   background-color: $g1;
@@ -73,9 +70,6 @@
   z-index: 2;
 }
 
-
-
-
 %container {
   width: 100%;
   height: 50vh;
@@ -101,12 +95,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-  h6{
+
+  h6 {
     font-size: $MD;
     font-weight: 400;
   }
- 
+
   p {
     margin-top: 19px;
     font-size: $SM;
@@ -115,7 +109,6 @@
   h1 {
     font-size: $LG;
   }
- 
 }
 
 .box-primary {
@@ -127,28 +120,32 @@
   @extend %box;
   @include set-background($secondary-color);
 }
+.box-admin {
+  @extend %box;
+  height: 100vh;
+  @include set-background($secondary-color);
+}
 
 .inp {
-    display: flex;
-    flex-direction: column;
-    color: $g1;
-    display: flex;
-    justify-content: center;
-  
-    label {
-        padding: 8px 0;
-      font-size: $lg-label;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  color: $g1;
+  display: flex;
+  justify-content: center;
 
-  .link-box{
-    margin-top: 24px;
+  label {
+    padding: 8px 0;
     font-size: $lg-label;
   }
-  .link{
-      color: $g1;
+}
 
-  }
+.link-box {
+  margin-top: 24px;
+  font-size: $lg-label;
+}
+.link {
+  color: $g1;
+}
 
 %alert {
   font-family: $stock-font;
@@ -169,8 +166,8 @@
   @include set-background($red1);
 }
 
-.foot{
-    @include set-background($primary-color);
+.foot {
+  @include set-background($primary-color);
   width: 100%;
   height: 20vh;
   margin-top: 30px;
@@ -180,19 +177,23 @@
   padding-bottom: 20px;
 }
 
-
 // LINK-TRAY
 
-.link-tray{
-    display: none;
+.link-tray {
+  display: none;
 }
 
-.b-icon{
-    display: none;
+.b-icon {
+  display: none;
 }
 
-.icon{
-    color: $g1;
-    display: flex;
-    align-items: center;
+.icon {
+  color: $g1;
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  font-size: $lg-font;
+  margin: 10px 0;
 }

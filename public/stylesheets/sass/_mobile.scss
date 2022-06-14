@@ -56,27 +56,12 @@
     }
   }
 
-  .input-primary {
-    @extend %input;
-  }
-
-  .input-secondary {
-    @extend %input;
-  }
   // BUTTON
 
   %btn {
     padding: $btn-sm-size;
     font-size: $sm-font;
     margin-top: $btn-sm-margin;
-  }
-
-  .btn-primary {
-    @extend %btn;
-  }
-
-  .btn-secondary {
-    @extend %btn;
   }
 
   .inp {
