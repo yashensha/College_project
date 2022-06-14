@@ -3,7 +3,7 @@ var router = express.Router();
 const { signup } = require("../utils/userLogic");
 const bcrypt = require("bcrypt");
 const User = require("../models/users_db");
-const async = require("hbs/lib/async");
+const expenseSchema = require("../models/expense_db");
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
@@ -116,11 +116,16 @@ router.get("/attendence/:id", async (req, res) => {
   }
 });
 
+/*
+  GET: localhost:3000/users/monthAttendence/{userId}
+  ---
+  userId : {mongodb Object Id}
+*/
 //select monthwise atendence of a user
 router.get("/monthAttendence/:id", async (req, res) => {
   const user = await User.findById(req.params.id);
   // console.log("user: ", user);
-  var nowDate = new Date();
+  const nowDate = new Date();
   var date =
     nowDate.getDate() +
     "/" +
@@ -131,6 +136,15 @@ router.get("/monthAttendence/:id", async (req, res) => {
   let old = 1 + "/" + nowDate.getMonth() + "/" + nowDate.getFullYear();
   let attendence = user.attendence;
   var Cmonth = [];
+
+  const monthExp = await expenseSchema.findOne(
+    { month: nowDate.getMonth() },
+    "month cost totalMeal"
+  );
+  console.log("monthExp: ", monthExp);
+
+  const cost = monthExp.cost / monthExp.totalMeal;
+  console.log("cost: ", cost);
 
   var om = old.split("/")[1];
   var oy = old.split("/")[2];
@@ -145,7 +159,7 @@ router.get("/monthAttendence/:id", async (req, res) => {
   });
 
   console.log("attendence: ", Cmonth);
-  res.json(Cmonth);
+  res.json({ cost, attendence: Cmonth });
 });
 
 module.exports = router;
