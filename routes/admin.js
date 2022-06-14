@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const { onlyAdmin } = require("../utils/middlewares");
 const User = require("../models/users_db");
-const attendence = require("../models/attendence_db");
+const expenseSchema = require("../models/expense_db");
 
 /* GET home page. */
 router.get("/", onlyAdmin, (req, res, next) => {
@@ -91,6 +91,39 @@ router.get("/monthly/:month", onlyAdmin, async (req, res) => {
   });
 
   res.json({ "mess month": Cmonth, length: Cmonth.length });
+});
+
+/*
+  POST: localhost:3000/admin/expense_month
+  ---
+  body
+    {
+      "month": {no of month},
+      "totalMeal": {total attendence of the month get from above route},
+      "cost": {total cost of the month}
+    }
+*/
+router.post("/expense_month", onlyAdmin, async (req, res) => {
+  // router.post("/expense_month", async (req, res) => {
+  let nowExpence = new expenseSchema(req.body);
+  await nowExpence.save();
+  res.json("success");
+});
+
+/*
+  GET: localhost:3000/admin/expense_month/:monthNo
+  ---
+  monthNo : 1-12
+*/
+// router.get("/expense_month/:monthNo", async (req, res) => {
+router.get("/expense_month/:monthNo", onlyAdmin, async (req, res) => {
+  // console.log("param monthNo: ", req.params.monthNo);
+  let monthExp = await expenseSchema.find(
+    { month: req.params.monthNo },
+    "month totalMeal cost"
+  );
+  // console.log("monthExp: ", monthExp);
+  res.json(monthExp);
 });
 
 module.exports = router;
