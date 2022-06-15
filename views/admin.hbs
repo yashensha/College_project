@@ -3,27 +3,74 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/sass/style.css" />
     <title>Admin Panel</title>
   </head>
   <body>
-    <h2>user list</h2>
-    <a href="/admin/users">list user</a>
-    <br />
-    <div class="container" style="display:flex ; flex-direction: column;">
-      <h2>monthly report</h2>
-      <a href="/admin/monthly/1">month 1</a>
-      <a href="/admin/monthly/2">month 2</a>
-      <a href="/admin/monthly/3">month 3</a>
-      <a href="/admin/monthly/4">month 4</a>
-      <a href="/admin/monthly/5">month 5</a>
-      <a href="/admin/monthly/6">month 6</a>
-      <a href="/admin/monthly/7">month 7</a>
-      <a href="/admin/monthly/8">month 8</a>
-      <a href="/admin/monthly/9">month 9</a>
-      <a href="/admin/monthly/10">month 10</a>
-      <a href="/admin/monthly/11">month 11</a>
-      <a href="/admin/monthly/12">month 12</a>
+    <!-- NAV BARS -->
+    <nav class="nav-bar">
+      <h1 class="heading">Hostelo de gentse</h1>
+      <div class="nav-link">
+        <a href="/admin/users">list user</a>
+        <a href="/users/logout">logout</a>
+      </div>
+      <div class="b-icon">
+        <i
+          class="fa fa-bars b-icon"
+          aria-hidden="true"
+          onclick="linkTray()"
+          id="bars"
+        ></i>
+      </div>
+    </nav>
+    <!-- NAV BARS -->
+
+    <div class="link-tray">
+      <i
+        class="fa fa-close c-icon"
+        onclick="linkTrayClose()"
+        aria-hidden="true"
+      ></i>
+      <a href="/admin/users">list user</a>
+      <a href="/users/logout">logout</a>
     </div>
 
+    <div class="container-admin">
+      <div class="box-monthly">
+        <h2>Monthly Report</h2>
+        <a href="/admin/monthly/1">Month 1</a>
+        <a href="/admin/monthly/2">Month 2</a>
+        <a href="/admin/monthly/3">Month 3</a>
+        <a href="/admin/monthly/4">Month 4</a>
+        <a href="/admin/monthly/5">Month 5</a>
+        <a href="/admin/monthly/6">Month 6</a>
+        <a href="/admin/monthly/7">Month 7</a>
+        <a href="/admin/monthly/8">Month 8</a>
+        <a href="/admin/monthly/9">Month 9</a>
+        <a href="/admin/monthly/10">Month 10</a>
+        <a href="/admin/monthly/11">Month 11</a>
+        <a href="/admin/monthly/12">Month 12</a>
+      </div>
+    </div>
+    <footer class="foot">
+      <p class="sml">
+        Developed by&nbsp;<a href="" class="link">youknowwho</a>
+      </p>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/7d58fde0a7.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function linkTray() { let tray = document.querySelector(".link-tray"); let
+      iBar = document.querySelector(".b-icon"); let iClose =
+      document.querySelector(".c-icon"); tray.style.top = "69px";
+      iBar.style.display = "none"; iClose.style.display = "flex"; } function
+      linkTrayClose() { let tray = document.querySelector(".link-tray"); let
+      iBar = document.querySelector(".b-icon"); let iClose =
+      document.querySelector(".c-icon"); tray.style.top = "-89px";
+      iBar.style.display = "flex"; iClose.style.display = "flex"; }
+    </script>
   </body>
 </html>

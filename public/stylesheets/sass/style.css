@@ -10,7 +10,7 @@
 body {
   background-color: #ffcc00;
   color: #1c1c1e;
-  height: 100vh;
+  min-height: 100vh;
   font-family: "Fira Mono", monospace;
 }
 
@@ -314,6 +314,26 @@ input[type=number] {
           flex-direction: column;
 }
 
+.container-admin {
+  width: 100%;
+  height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #ffcc00;
+  color: #1c1c1e;
+}
+
 .container-primary {
   background-color: #ffcc00;
   color: #1c1c1e;
@@ -324,7 +344,7 @@ input[type=number] {
   color: #ffcc00;
 }
 
-.box-primary, .box-secondary, .box-admin {
+.box-primary, .box-secondary, .box-admin, .box-monthly {
   width: 100%;
   font-family: "Fira Mono", monospace;
   display: -webkit-box;
@@ -342,17 +362,17 @@ input[type=number] {
           justify-content: center;
 }
 
-.box-primary h6, .box-secondary h6, .box-admin h6 {
+.box-primary h6, .box-secondary h6, .box-admin h6, .box-monthly h6 {
   font-size: 2em;
   font-weight: 400;
 }
 
-.box-primary p, .box-secondary p, .box-admin p {
+.box-primary p, .box-secondary p, .box-admin p, .box-monthly p {
   margin-top: 19px;
   font-size: 2em;
 }
 
-.box-primary h1, .box-secondary h1, .box-admin h1 {
+.box-primary h1, .box-secondary h1, .box-admin h1, .box-monthly h1 {
   font-size: 10em;
 }
 
@@ -368,6 +388,37 @@ input[type=number] {
 
 .box-admin {
   height: 100vh;
+  background-color: #1c1c1e;
+  color: #ffcc00;
+}
+
+.box-monthly {
+  background-color: #ffcc00;
+  color: #1c1c1e;
+  padding: 20px 0;
+}
+
+.box-monthly h2 {
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.box-monthly a {
+  text-decoration: none;
+  padding: 10px 0;
+  font-size: 17pt;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #ffcc00;
+  color: #1c1c1e;
+}
+
+.box-monthly a:hover {
   background-color: #1c1c1e;
   color: #ffcc00;
 }
@@ -554,7 +605,7 @@ input[type=number] {
   .link-box {
     font-size: 12pt;
   }
-  .box-primary, .box-secondary, .box-admin {
+  .box-primary, .box-secondary, .box-admin, .box-monthly {
     width: 100%;
     font-family: "Fira Mono", monospace;
     display: -webkit-box;
@@ -571,15 +622,15 @@ input[type=number] {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .box-primary h6, .box-secondary h6, .box-admin h6 {
+  .box-primary h6, .box-secondary h6, .box-admin h6, .box-monthly h6 {
     font-size: 1.5em;
     font-weight: 400;
   }
-  .box-primary p, .box-secondary p, .box-admin p {
+  .box-primary p, .box-secondary p, .box-admin p, .box-monthly p {
     margin-top: 19px;
     font-size: 1em;
   }
-  .box-primary h1, .box-secondary h1, .box-admin h1 {
+  .box-primary h1, .box-secondary h1, .box-admin h1, .box-monthly h1 {
     font-size: 8em;
   }
 }

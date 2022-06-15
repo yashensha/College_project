@@ -78,6 +78,15 @@
   justify-content: center;
   flex-direction: column;
 }
+.container-admin {
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  @include set-background($primary-color);
+}
 .container-primary {
   @extend %container;
   @include set-background($primary-color);
@@ -124,6 +133,30 @@
   @extend %box;
   height: 100vh;
   @include set-background($secondary-color);
+}
+.box-monthly {
+  @extend %box;
+  @include set-background($primary-color);
+  padding: 20px 0;
+
+
+  h2 {
+    font-size: 30px;
+    padding-bottom: 10px;
+  }
+  a {
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: $lg-font;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    @include set-background($primary-color);
+
+    &:hover {
+      @include set-background($secondary-color);
+    }
+  }
 }
 
 .inp {

@@ -11,7 +11,7 @@
 
 body {
   @include set-background($primary-color);
-  height: 100vh;
+  min-height: 100vh;
   font-family: $stock-font;
 }
 .nav-link {

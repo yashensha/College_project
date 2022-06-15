@@ -4,12 +4,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Admin</title>
+    <title>Admin Panel</title>
   </head>
   <body>
+    <!-- NAV BARS -->
     <nav class="nav-bar">
       <h1 class="heading">Hostelo de gentse</h1>
       <div class="nav-link">
+        <a href="/admin/users">list user</a>
         <a href="/users/logout">logout</a>
       </div>
       <div class="b-icon">
@@ -21,6 +23,7 @@
         ></i>
       </div>
     </nav>
+    <!-- NAV BARS -->
 
     <div class="link-tray">
       <i
@@ -28,20 +31,26 @@
         onclick="linkTrayClose()"
         aria-hidden="true"
       ></i>
-      <a href="/users/logout" class="">logout</a>
+      <a href="/admin/users">list user</a>
+      <a href="/users/logout">logout</a>
     </div>
 
-    <div class="box-admin">
-      <h2>Name</h2>
-      <span class="username">{{user.username}}</span>
-      <p>Previous month's mess bill</p>
-      <h1>250$</h1>
-      <a href="/users/addatendence/{{user._id}}" class="btn btn-primary"
-        >Add attendance</a
-      >
-      <a href="/users/monthAttendence/{{user._id}}" class="btn btn-primary"
-        >All attendance</a
-      >
+    <div class="container-admin">
+      <div class="box-monthly">
+        <h2>Monthly Report</h2>
+        <a href="/admin/monthly/1">Month 1</a>
+        <a href="/admin/monthly/2">Month 2</a>
+        <a href="/admin/monthly/3">Month 3</a>
+        <a href="/admin/monthly/4">Month 4</a>
+        <a href="/admin/monthly/5">Month 5</a>
+        <a href="/admin/monthly/6">Month 6</a>
+        <a href="/admin/monthly/7">Month 7</a>
+        <a href="/admin/monthly/8">Month 8</a>
+        <a href="/admin/monthly/9">Month 9</a>
+        <a href="/admin/monthly/10">Month 10</a>
+        <a href="/admin/monthly/11">Month 11</a>
+        <a href="/admin/monthly/12">Month 12</a>
+      </div>
     </div>
     <footer class="foot">
       <p class="sml">
@@ -53,7 +62,6 @@
       src="https://kit.fontawesome.com/7d58fde0a7.js"
       crossorigin="anonymous"
     ></script>
-
     <script>
       function linkTray() {
         let tray = document.querySelector(".link-tray");
