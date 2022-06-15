@@ -49,24 +49,28 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-  // console.log("body: ", req.body);
+  console.log("body: ", req.body);
   User.findOne({
-    username: req.body.username,
+    phone: req.body.phonenumber,
   }).then((user) => {
-    // console.log("user: ", user);
-    bcrypt.compare(req.body.password, user.password, function (err, result) {
-      // console.log("result: ", result);
-      if (result) {
-        req.session.isLoggedin = true;
-        req.session.isAdmin = user.isAdmin;
-        req.session.userData = user;
-        console.log("login succs");
-        res.redirect("/");
-      } else {
-        console.log("login err");
-        console.log("err: ", err);
-      }
-    });
+    if (!user) {
+      res.json("No user found");
+    } else {
+      console.log("user: ", user);
+      bcrypt.compare(req.body.password, user.password, function (err, result) {
+        console.log("result: ", result);
+        if (result) {
+          req.session.isLoggedin = true;
+          req.session.isAdmin = user.isAdmin;
+          req.session.userData = user;
+          console.log("login succs");
+          res.redirect("/");
+        } else {
+          console.log("login err");
+          console.log("err: ", err);
+        }
+      });
+    }
   });
 
   // .then((dbRes) => {
