@@ -1,43 +1,43 @@
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type=number]{
--moz-appearance: textfield;
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
-%input{
+%input {
   background-color: transparent;
   width: $inp-lg-w;
   height: $inp-lg-h;
   font-size: $lg-font;
-  color: $g1;
   font-family: $stock-font;
   padding-left: 8px;
-  
-  &::placeholder{
-      font-size: 21pt;
-      color: $g1;
-    }
-    &:focus{
-        outline: none;
-    }
+
+  &::placeholder {
+    font-size: 21pt;
+  }
+  &:focus {
+    outline: none;
+  }
 }
 
-.input-primary{
-    @extend %input;
-    border: $g1 solid 2px;
-    
-    &::placeholder{
-        color: $g1;
-    }
+.input-primary {
+  @extend %input;
+  border: $g1 solid 2px;
+  color: $g1;
+
+  &::placeholder {
+    color: $g1;
+  }
 }
-.input-secondary{
-    @extend %input;
-    border: $yellow1 solid 2px;
-    &::placeholder{
-        color: $yellow1;
-    }
+.input-secondary {
+  @extend %input;
+  border: $yellow1 solid 2px;
+  color: $yellow1;
+  &::placeholder {
+    color: $yellow1;
+  }
 }

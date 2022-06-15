@@ -85,7 +85,12 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+.primary {
   @include set-background($primary-color);
+}
+.secondary {
+  @include set-background($secondary-color);
 }
 .container-primary {
   @extend %container;
@@ -132,7 +137,6 @@
 .box-admin {
   @extend %box;
   height: 100vh;
-  @include set-background($secondary-color);
 }
 .box-monthly {
   @extend %box;

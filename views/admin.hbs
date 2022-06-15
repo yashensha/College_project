@@ -36,22 +36,47 @@
     </div>
     <div class="container-admin">
       <p class="banner-admin">Admin panel</p>
-      <div class="box-monthly">
+      <!-- <div class="box-monthly">
+          <a href="/admin/monthly/1">January</a>
+          <a href="/admin/monthly/2">February</a>
+          <a href="/admin/monthly/3">March</a>
+          <a href="/admin/monthly/4">April</a>
+          <a href="/admin/monthly/5">May</a>
+          <a href="/admin/monthly/6">June</a>
+          <a href="/admin/monthly/7">July</a>
+          <a href="/admin/monthly/8">August</a>
+          <a href="/admin/monthly/9">September</a>
+          <a href="/admin/monthly/10">October</a>
+          <a href="/admin/monthly/11">November</a>
+          <a href="/admin/monthly/12">December</a>
+        </div> -->
+
+      <div class="box-admin primary">
         <h2>Monthly Report</h2>
-        <a href="/admin/monthly/1">January</a>
-        <a href="/admin/monthly/2">February</a>
-        <a href="/admin/monthly/3">March</a>
-        <a href="/admin/monthly/4">April</a>
-        <a href="/admin/monthly/5">May</a>
-        <a href="/admin/monthly/6">June</a>
-        <a href="/admin/monthly/7">July</a>
-        <a href="/admin/monthly/8">August</a>
-        <a href="/admin/monthly/9">September</a>
-        <a href="/admin/monthly/10">October</a>
-        <a href="/admin/monthly/11">November</a>
-        <a href="/admin/monthly/12">December</a>
+        <br />
+        <p id="month"></p>
+        <h1>53</h1>
+        <p>marked attendances</p>
+        <br />
+        <select name="months" class="input-primary" id="months">
+          <option value="0" selected disabled>Select Month</option>
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+        <button class="btn-primary" onclick="op_att()">Select</button>
       </div>
     </div>
+
     <footer class="foot">
       <p class="sml">
         Developed by&nbsp;<a href="" class="link">youknowwho</a>
@@ -63,8 +88,14 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      function linkTray() { let tray = document.querySelector(".link-tray"); let
-      iBar = document.querySelector(".b-icon"); let iClose =
+      let d = new Date(); let m = d.getMonth(); const monthNames =
+      ["January","February","March","April","May","June","July","August","September","October","November","December"];
+      const month = monthNames[d.getMonth()];
+      document.getElementById('month').innerText=`${month}`; function op_att (){
+      let op = document.getElementById('months').value; let monthAtt =
+      `/admin/monthly/${op}` console.log(monthAtt) } function linkTray() { let
+      tray = document.querySelector(".link-tray"); let iBar =
+      document.querySelector(".b-icon"); let iClose =
       document.querySelector(".c-icon"); tray.style.top = "69px";
       iBar.style.display = "none"; iClose.style.display = "flex"; } function
       linkTrayClose() { let tray = document.querySelector(".link-tray"); let
