@@ -51,7 +51,7 @@ router.get("/login", (req, res) => {
 router.post("/login", (req, res) => {
   console.log("body: ", req.body);
   User.findOne({
-    phone: req.body.phonenumber,
+    phone: req.body.phone,
   }).then((user) => {
     if (!user) {
       res.json("No user found");
@@ -64,7 +64,11 @@ router.post("/login", (req, res) => {
           req.session.isAdmin = user.isAdmin;
           req.session.userData = user;
           console.log("login succs");
-          res.redirect("/");
+          if (user.isAdmin) {
+            res.redirect("/admin");
+          } else {
+            res.redirect("/");
+          }
         } else {
           console.log("login err");
           console.log("err: ", err);
@@ -98,7 +102,7 @@ router.get("/logout", (req, res) => {
 //attendenece marking
 
 router.get("/attendence/:id", async (req, res) => {
-  // console.log("id: ", req.params.id);
+  console.log("id: ", req.params.id);
   var nowDate = new Date();
   var date =
     nowDate.getDate() +

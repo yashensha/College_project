@@ -6,7 +6,7 @@ const expenseSchema = require("../models/expense_db");
 
 /* GET home page. */
 router.get("/", onlyAdmin, (req, res, next) => {
-  res.send("admin");
+  res.render("admin");
 });
 
 router.get("/users", onlyAdmin, (req, res) => {
