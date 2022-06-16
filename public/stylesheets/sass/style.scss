@@ -13,6 +13,17 @@ body {
   @include set-background($primary-color);
   min-height: 100vh;
   font-family: $stock-font;
+
+  ::-moz-selection {
+    /* Code for Firefox */
+    color: $yellow1;
+    background: $g1;
+  }
+
+  ::selection {
+    color: $yellow1;
+    background: $g1;
+  }
 }
 .nav-link {
   display: flex;

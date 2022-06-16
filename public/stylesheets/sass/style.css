@@ -10,6 +10,13 @@ body {
   color: #1c1c1e;
   min-height: 100vh;
   font-family: "Fira Mono", monospace; }
+  body ::-moz-selection {
+    /* Code for Firefox */
+    color: #ffcc00;
+    background: #1c1c1e; }
+  body ::selection {
+    color: #ffcc00;
+    background: #1c1c1e; }
 
 .nav-link {
   display: flex;
@@ -219,6 +226,8 @@ input[type="number"] {
 
 .box-admin {
   height: 100vh; }
+  .box-admin h2 {
+    margin-top: 16px; }
 
 .box-monthly {
   background-color: #ffcc00;

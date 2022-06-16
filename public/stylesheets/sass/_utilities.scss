@@ -137,6 +137,10 @@
 .box-admin {
   @extend %box;
   height: 100vh;
+
+  h2 {
+    margin-top: 16px;
+  }
 }
 .box-monthly {
   @extend %box;
