@@ -99,7 +99,6 @@ router.get("/monthly/:month", onlyAdmin, async (req, res) => {
   body
     {
       "month": {no of month},
-      "totalMeal": {total attendence of the month get from above route},
       "cost": {total cost of the month}
     }
 */

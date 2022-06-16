@@ -7,7 +7,7 @@ const expenseSchema = require("../models/expense_db");
 
 /* GET users listing. */
 router.get("/", async (req, res, next) => {
-  res.send("respond with a resource");
+  res.redirect("/");
 });
 
 router.get("/signup", (req, res) => {
@@ -76,6 +76,7 @@ router.post("/login", (req, res) => {
             } else {
               console.log("login err");
               console.log("err: ", err);
+              res.json("credentials missmatch");
             }
           }
         );
@@ -83,6 +84,7 @@ router.post("/login", (req, res) => {
     })
     .catch((e) => {
       console.log("err: ", e);
+      res.status(500).json("Contact Administrator");
     });
 
   // .then((dbRes) => {
