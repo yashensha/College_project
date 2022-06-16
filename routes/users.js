@@ -155,10 +155,11 @@ router.get("/monthAttendence/:id", async (req, res) => {
   let attendence = user.attendence;
   var Cmonth = [];
 
-  const monthExp = await expenseSchema.findOne(
+  const monthExpArray = await expenseSchema.find(
     { month: nowDate.getMonth() },
     "month cost totalMeal"
   );
+  const monthExp = monthExpArray.pop();
   console.log("monthExp: ", monthExp);
 
   const cost = monthExp.cost / monthExp.totalMeal;

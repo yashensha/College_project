@@ -93,6 +93,10 @@ router.get("/monthly/:month", onlyAdmin, async (req, res) => {
   res.json({ "mess month": Cmonth, length: Cmonth.length });
 });
 
+router.get("/expense", onlyAdmin, async (req, res) => {
+  res.render("expense_form");
+});
+
 /*
   POST: localhost:3000/admin/expense_month
   ---

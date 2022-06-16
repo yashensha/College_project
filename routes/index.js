@@ -24,7 +24,8 @@ router.get("/", islogin, async (req, res, next) => {
   const currentMonth = new Date().getMonth();
   // console.log("currentMonth =: ", currentMonth);
   // console.log(req.session);
-  const expense = await expenseSchema.findOne({ month: currentMonth });
+  const expenseArray = await expenseSchema.find({ month: currentMonth });
+  const expense = expenseArray.pop();
   console.log("expense: ", expense);
   const user = await User.findById(req.session.userData._id);
   // const user = await User.findById("62a962a395ceb7ea11915a35");

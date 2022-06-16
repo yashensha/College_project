@@ -5,7 +5,7 @@ const expence = new mongoose.Schema(
     month: {
       type: Number,
       required: true,
-      unique: true,
+      // unique: true,
     },
     totalMeal: {
       type: Number,
