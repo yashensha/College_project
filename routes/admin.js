@@ -10,7 +10,7 @@ router.get("/", onlyAdmin, (req, res, next) => {
 });
 
 router.get("/users", onlyAdmin, (req, res) => {
-  User.find({}, "username attendence")
+  User.find()
     .then((dbRes) => {
       console.log("dbRes: ", dbRes);
       res.json(dbRes);
@@ -93,21 +93,50 @@ router.get("/monthly/:month", onlyAdmin, async (req, res) => {
   res.json({ "mess month": Cmonth, length: Cmonth.length });
 });
 
+router.get("/expense", onlyAdmin, async (req, res) => {
+  res.render("expense_form");
+});
+
 /*
   POST: localhost:3000/admin/expense_month
   ---
   body
     {
       "month": {no of month},
-      "totalMeal": {total attendence of the month get from above route},
       "cost": {total cost of the month}
     }
 */
 router.post("/expense_month", onlyAdmin, async (req, res) => {
   // router.post("/expense_month", async (req, res) => {
+
+  let Cmonth = [];
+  let findMonthNumber = req.body.month;
+  let currentYear = new Date().getFullYear();
+
+  const allUser = await User.find();
+  allUser.forEach((user) => {
+    user.attendence.map((singleAttDate) => {
+      let cm = singleAttDate.split("/")[1];
+      let cy = singleAttDate.split("/")[2];
+      if (cm == findMonthNumber && cy == currentYear) {
+        // console.log(singleAttDate);
+        Cmonth.push(singleAttDate);
+      }
+    });
+  });
+
+  console.log("Cmonth: ", Cmonth);
+  req.body.totalMeal = Cmonth.length;
   let nowExpence = new expenseSchema(req.body);
-  await nowExpence.save();
-  res.json("success");
+  nowExpence
+    .save()
+    .then((dbRes) => {
+      res.json("success");
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json("error");
+    });
 });
 
 /*

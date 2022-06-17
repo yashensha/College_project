@@ -6,8 +6,8 @@ const User = require("../models/users_db");
 const expenseSchema = require("../models/expense_db");
 
 /* GET users listing. */
-router.get("/", function (req, res, next) {
-  res.send("respond with a resource");
+router.get("/", async (req, res, next) => {
+  res.redirect("/");
 });
 
 router.get("/signup", (req, res) => {
@@ -52,30 +52,40 @@ router.post("/login", (req, res) => {
   console.log("body: ", req.body);
   User.findOne({
     phone: req.body.phone,
-  }).then((user) => {
-    if (!user) {
-      res.json("No user found");
-    } else {
-      console.log("user: ", user);
-      bcrypt.compare(req.body.password, user.password, function (err, result) {
-        console.log("result: ", result);
-        if (result) {
-          req.session.isLoggedin = true;
-          req.session.isAdmin = user.isAdmin;
-          req.session.userData = user;
-          console.log("login succs");
-          if (user.isAdmin) {
-            res.redirect("/admin");
-          } else {
-            res.redirect("/");
+  })
+    .then((user) => {
+      if (!user) {
+        res.json("No user found");
+      } else {
+        console.log("user: ", user);
+        bcrypt.compare(
+          req.body.password,
+          user.password,
+          function (err, result) {
+            console.log("result: ", result);
+            if (result) {
+              req.session.isLoggedin = true;
+              req.session.isAdmin = user.isAdmin;
+              req.session.userData = user;
+              console.log("login succs");
+              if (user.isAdmin) {
+                res.redirect("/admin");
+              } else {
+                res.redirect("/");
+              }
+            } else {
+              console.log("login err");
+              console.log("err: ", err);
+              res.json("credentials missmatch");
+            }
           }
-        } else {
-          console.log("login err");
-          console.log("err: ", err);
-        }
-      });
-    }
-  });
+        );
+      }
+    })
+    .catch((e) => {
+      console.log("err: ", e);
+      res.status(500).json("Contact Administrator");
+    });
 
   // .then((dbRes) => {
   //   // console.log("dbRes: ", dbRes);
@@ -145,10 +155,11 @@ router.get("/monthAttendence/:id", async (req, res) => {
   let attendence = user.attendence;
   var Cmonth = [];
 
-  const monthExp = await expenseSchema.findOne(
+  const monthExpArray = await expenseSchema.find(
     { month: nowDate.getMonth() },
     "month cost totalMeal"
   );
+  const monthExp = monthExpArray.pop();
   console.log("monthExp: ", monthExp);
 
   const cost = monthExp.cost / monthExp.totalMeal;
