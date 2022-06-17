@@ -13,7 +13,7 @@ router.get("/users", onlyAdmin, (req, res) => {
   User.find()
     .then((dbRes) => {
       console.log("dbRes: ", dbRes);
-      res.json(dbRes);
+      res.render("usersList", { users: dbRes });
     })
     .catch((dbErr) => {
       console.log("dbErr: ", dbErr);

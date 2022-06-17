@@ -56,7 +56,7 @@ router.get("/", islogin, async (req, res, next) => {
 
   console.log("Cmonth: ", Cmonth);
   console.log("expense: ", expense);
-  const perDayCost = expense.cost / expense.totalMeal;
+  const perDayCost = expense?.cost / expense?.totalMeal;
   console.log("perDayCost: ", perDayCost);
   const userCost = perDayCost * Cmonth.length;
   console.log("userCost: ", userCost);
