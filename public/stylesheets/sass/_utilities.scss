@@ -28,6 +28,10 @@
 .banner-admin {
   @extend %banner;
   @include set-background($red1);
+
+  p {
+    font-size: 2em;
+  }
 }
 
 .banner-success {

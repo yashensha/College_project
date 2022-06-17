@@ -16,8 +16,8 @@ const monthNames = [
 ];
 const month = monthNames[d.getMonth()];
 const preMonth = monthNames[d.getMonth() - 1];
-document.getElementById("previousMonth").innerText = `Mess bill of ${preMonth}`;
 document.getElementById("month").innerHTML = `${month}`;
+document.getElementById("previousMonth").innerText = `Mess bill of ${preMonth}`;
 
 function op_att() {
   let op = document.getElementById("months").value;

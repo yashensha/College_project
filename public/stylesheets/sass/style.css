@@ -131,6 +131,8 @@ input[type="number"] {
 .banner-admin {
   background-color: #ff3b30;
   color: #f2f2f7; }
+  .banner-admin p {
+    font-size: 2em; }
 
 .banner-success {
   background-color: #34c759;
