@@ -3,13 +3,85 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin pannel</title>
+    <link rel="stylesheet" href="/stylesheets/sass/style.css" />
+    <title>Admin | add expenses </title>
   </head>
   <body>
-    <form action="/admin/expense_month/" method="post">
-      <input type="text" name="month" id="month" placeholder="month [1-12]" />
-      <input type="text" name="cost" id="totalCost" placeholder="Total Cost" />
-      <input type="submit" value="submit" />
+
+    <!-- NAV BARS -->
+    <nav class="nav-bar">
+      <h1 class="heading">Hostelo de gentse</h1>
+      <div class="nav-link">
+        <a href="/admin/">Home</a>
+        <a href="/admin/expense" class="active">Submit Expense</a>
+        <a href="/admin/users">list user</a>
+        <a href="/users/logout">logout</a>
+      </div>
+      <div class="b-icon">
+        <i
+          class="fa fa-bars b-icon"
+          aria-hidden="true"
+          onclick="linkTray()"
+          id="bars"
+        ></i>
+      </div>
+    </nav>
+
+    <div class="link-tray">
+      <i
+        class="fa fa-close c-icon"
+        onclick="linkTrayClose()"
+        aria-hidden="true"
+      ></i>
+      <a href="/admin/">Home</a>
+      <a href="/admin/expense">Submit Expense</a>
+      <a href="/admin/users">list user</a>
+      <a href="/users/logout">logout</a>
+    </div>
+    <!-- NAV BARS -->
+    <form action="/admin/expense_month/" method="post" class="form">
+
+      <div class="inp">
+        <label for="name">Month</label>
+        <input
+          class="input-primary"
+          type="text"
+          name="month"
+          id="month"
+          placeholder="month [1-12]"
+          required
+        />
+      </div>
+
+      <div class="inp">
+        <label for="password">Cost</label>
+        <input
+          type="text"
+          name="cost"
+          id="totalCost"
+          placeholder="Total Cost"
+          class="input-primary"
+          required
+        />
+
+      </div>
+
+      <div class="inp">
+        <button class="btn-primary" type="submit">Submit</button>
+      </div>
     </form>
+    <footer class="foot">
+      <p class="sml">Developed by&nbsp;<a
+          href=""
+          class="link"
+        >youknowwho</a></p>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/7d58fde0a7.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="/javascripts/script.js"> </script>
   </body>
 </html>
