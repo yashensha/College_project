@@ -1,66 +1,84 @@
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/stylesheets/sass/style.css" />
-  <title>Admin Panel | Users list</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/sass/style.css" />
+    <title>Admin Panel | Users list</title>
+  </head>
 
-<body>
-  <table border="1">
-    <thead>
-      <tr>
-        <th>Admission No</th>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Department</th>
-        <th>Guardian</th>
-        <th>Guardian: Contact</th>
-    </thead>
-    <tbody>
-      {{#each users}}
-      <tr>
-        <td>{{admissionNo}}</td>
-        <td>{{username}}</td>
-        <td>{{phone}}</td>
-        <td>{{department}}</td>
-        <td>{{guardian}}</td>
-        <td>{{guardianNo}}</td>
-      </tr>
-      {{/each}}
-    </tbody>
-  </table>
+  <body>
+    <!-- NAV BARS -->
+    <nav class="nav-bar">
+      <h1 class="heading">Hostelo de gentse</h1>
+      <div class="nav-link">
+        <a href="/admin/">Home</a>
+        <a href="/admin/expense">Submit Expense</a>
+        <a href="/admin/users" class="active">list user</a>
+        <a href="/users/logout">logout</a>
+      </div>
+      <div class="b-icon">
+        <i
+          class="fa fa-bars b-icon"
+          aria-hidden="true"
+          onclick="linkTray()"
+          id="bars"
+        ></i>
+      </div>
+    </nav>
+    <!-- NAV BARS -->
 
-  <footer class="foot">
-    <p class="sml">
-      Developed by&nbsp;<a href="" class="link">youknowwho</a>
-    </p>
-  </footer>
+    <div class="link-tray">
+      <i
+        class="fa fa-close c-icon"
+        onclick="linkTrayClose()"
+        aria-hidden="true"
+      ></i>
+      <a href="/admin/expense">Submit Expense</a>
+      <a href="/admin/users">list user</a>
+      <a href="/users/logout">logout</a>
+    </div>
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>Admission No</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Department</th>
+            <th>Guardian</th>
+            <th>Guardian Contact</th>
+          </tr>
+        </thead>
 
-  <script src="https://kit.fontawesome.com/7d58fde0a7.js" crossorigin="anonymous"></script>
-  <script>
-    let d = new Date(); let m = d.getMonth(); const monthNames =
-      ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const month = monthNames[d.getMonth()];
-    document.getElementById('month').innerText = `${month}`; function op_att() {
-      let op = document.getElementById('months').value; let monthAtt =
-        `/admin/monthly/${op}` console.log(monthAtt)
-    } function linkTray() {
-      let
-      tray = document.querySelector(".link-tray"); let iBar =
-        document.querySelector(".b-icon"); let iClose =
-          document.querySelector(".c-icon"); tray.style.top = "69px";
-      iBar.style.display = "none"; iClose.style.display = "flex";
-    } function
-      linkTrayClose() {
-        let tray = document.querySelector(".link-tray"); let
-          iBar = document.querySelector(".b-icon"); let iClose =
-            document.querySelector(".c-icon"); tray.style.top = "-89px";
-      iBar.style.display = "flex"; iClose.style.display = "flex";
-    }
-  </script>
-</body>
+        <tbody>
+          {{#each users}}
+            <tr>
+              <td>{{admissionNo}}</td>
+              <td>{{username}}</td>
+              <td>{{phone}}</td>
+              <td>{{department}}</td>
+              <td>{{guardian}}</td>
+              <td>{{guardianNo}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+
+    <footer class="foot">
+      <p class="sml">
+        Developed by&nbsp;<a href="" class="link">youknowwho</a>
+      </p>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/7d58fde0a7.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/javascripts/script.js">
+    </script>
+  </body>
 
 </html>

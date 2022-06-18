@@ -20,12 +20,11 @@ function op_att() {
   let monthAtt = `/admin/monthly/${op}`;
   console.log(monthAtt);
 }
-
 function linkTray() {
   let tray = document.querySelector(".link-tray");
   let iBar = document.querySelector(".b-icon");
   let iClose = document.querySelector(".c-icon");
-  tray.style.top = "69px";
+  tray.style.top = "70px";
   iBar.style.display = "none";
   iClose.style.display = "flex";
 }
@@ -33,7 +32,7 @@ function linkTrayClose() {
   let tray = document.querySelector(".link-tray");
   let iBar = document.querySelector(".b-icon");
   let iClose = document.querySelector(".c-icon");
-  tray.style.top = "-120px";
+  tray.style.top = "-145px";
   iBar.style.display = "flex";
   iClose.style.display = "flex";
 }

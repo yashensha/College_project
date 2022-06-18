@@ -28,13 +28,14 @@ body {
 }
 .nav-link {
   display: flex;
-  justify-content: space-between;
   // background-color: $red1;
+  justify-content: flex-end;
   align-items: center;
   justify-self: flex-end;
   width: 499px;
 
   a {
+    padding-left: 18px;
     color: $g1;
     text-decoration: none;
   }

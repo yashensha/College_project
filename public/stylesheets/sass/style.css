@@ -25,12 +25,13 @@ body ::selection {
 
 .nav-link {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   justify-self: flex-end;
   width: 499px;
 }
 .nav-link a {
+  padding-left: 18px;
   color: #1c1c1e;
   text-decoration: none;
 }
