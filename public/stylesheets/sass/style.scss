@@ -55,7 +55,7 @@ body {
   display: flex;
   font-size: $lg-c-ii;
 }
-
+@import "table";
 @import "button";
 @import "input";
 @import "utilities";

@@ -14,10 +14,6 @@ const monthNames = [
   "November",
   "December",
 ];
-const month = monthNames[d.getMonth()];
-const preMonth = monthNames[d.getMonth() - 1];
-document.getElementById("month").innerHTML = `${month}`;
-document.getElementById("previousMonth").innerText = `Mess bill of ${preMonth}`;
 
 function op_att() {
   let op = document.getElementById("months").value;
@@ -37,7 +33,7 @@ function linkTrayClose() {
   let tray = document.querySelector(".link-tray");
   let iBar = document.querySelector(".b-icon");
   let iClose = document.querySelector(".c-icon");
-  tray.style.top = "-89px";
+  tray.style.top = "-120px";
   iBar.style.display = "flex";
   iClose.style.display = "flex";
 }
