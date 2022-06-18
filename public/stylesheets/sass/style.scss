@@ -13,6 +13,7 @@ body {
   @include set-background($primary-color);
   min-height: 100vh;
   font-family: $stock-font;
+  overflow: hidden;
 
   ::-moz-selection {
     /* Code for Firefox */
@@ -31,7 +32,7 @@ body {
   // background-color: $red1;
   align-items: center;
   justify-self: flex-end;
-  width: 189px;
+  width: 499px;
 
   a {
     color: $g1;

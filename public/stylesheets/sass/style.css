@@ -11,6 +11,7 @@ body {
   color: #1c1c1e;
   min-height: 100vh;
   font-family: "Fira Mono", monospace;
+  overflow: hidden;
 }
 body ::-moz-selection {
   /* Code for Firefox */
@@ -27,7 +28,7 @@ body ::selection {
   justify-content: space-between;
   align-items: center;
   justify-self: flex-end;
-  width: 189px;
+  width: 499px;
 }
 .nav-link a {
   color: #1c1c1e;
@@ -56,10 +57,9 @@ body ::selection {
 .table {
   display: flex;
   justify-content: center;
-  margin-top: 23px;
   width: 100%;
   padding-bottom: 100px;
-  padding-top: 14px;
+  padding-top: 124px;
 }
 
 table {
@@ -68,14 +68,14 @@ table {
   border-collapse: collapse;
 }
 table th {
-  font-size: 24px;
+  font-size: 19pt;
   border: 2px solid black;
   border-collapse: collapse;
   padding: 5px;
   height: 47px;
 }
 table td {
-  font-size: 20px;
+  font-size: 17pt;
   text-align: center;
   border: 2px solid black;
   border-collapse: collapse;
@@ -447,8 +447,9 @@ input[type=number] {
     height: auto;
     position: absolute;
     z-index: 1;
-    top: -120px;
+    top: -145px;
     transition: 0.5s;
+    overflow: hidden;
   }
   .link-tray a {
     padding: 15px;
@@ -534,10 +535,9 @@ input[type=number] {
     display: flex;
     justify-content: flex-start;
     padding-left: 16px;
-    margin-top: 23px;
     width: 100%;
     padding-bottom: 100px;
-    padding-top: 14px;
+    padding-top: 214px;
   }
 
   table {
