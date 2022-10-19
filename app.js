@@ -34,9 +34,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const MONGODB_URI =
   "mongodb+srv://yasi:yasi@cluster0.zv7srq2.mongodb.net/?retryWrites=true&w=majority";
-mongoose.connect(MONGODB_URI, () => {
-  console.log("db connected");
-});
+// mongoose.connect(MONGODB_URI, () => {
+//   console.log("db connected");
+// });
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
