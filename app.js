@@ -32,7 +32,9 @@ app.use(cookieParser());
 app.use(session({ secret: "loremispum", cookie: { maxAge: 10 * 60000 } }));
 app.use(express.static(path.join(__dirname, "public")));
 
-mongoose.connect(process.env.MONGODB_URI, () => {
+const MONGODB_URI =
+  "mongodb+srv://yasi:yasi@cluster0.zv7srq2.mongodb.net/?retryWrites=true&w=majority";
+mongoose.connect(MONGODB_URI, () => {
   console.log("db connected");
 });
 
